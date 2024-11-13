@@ -21,7 +21,6 @@ function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartButton.addEventListener("click", restartGame);
     statusText.textContent = `${currentPlayer}'s turn`;
-    let options = ["", "", "", "", "", "", "", "", ""];
     running = true;
     let currentPlayer = "X";
     cells.forEach(cell => cell.textContent = "");
@@ -33,7 +32,6 @@ function cellClicked(){
         return
     }
 
-    console.log("cellUpdateRequested");
     updateCell(this, cellIndex);
     checkWinner();
 
@@ -41,7 +39,6 @@ function cellClicked(){
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
-    console.log(`cell updated ${options[index]}`);
 
 }
 function changePlayer(){
