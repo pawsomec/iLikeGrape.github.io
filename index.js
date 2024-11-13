@@ -26,7 +26,7 @@ function initializeGame(){
 }
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
-
+    console.log("cell clicked");
     if(options[cellIndex] != "" || !running){
         return;
     }
@@ -38,15 +38,18 @@ function cellClicked(){
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    console.log(`cell update ${options[index]}`);
 
 }
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
+    console.log("changedPlayer")
 
 }
 function checkWinner(){
     let roundWon = false;
+    console.log("checkWinner");
 
     for(let i = 0; i < winConditions.length; i++){
         const condition = winConditions[i];
@@ -54,10 +57,12 @@ function checkWinner(){
         const cellB = options[condition[1]];
         const cellC = options[condition[2]];
         if(cellA == "" || cellB == "" || cellC == "" ){
+            console.log("allBlank");
             continue
         }
         if(cellA == cellB && cellB == cellC && cellA != ""){
             roundWon = true;
+            console.log("roundWonSet2True");
             break;
         }
     }
@@ -65,12 +70,15 @@ function checkWinner(){
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`
         running = false;
+        console.log("win");
     }
     else if (!options.includes("")){
         statusText.textContent = `Draw!`
         running = false;
+        console.log("tie");
     }
     else{
+        console.log("gameNotOver");
         changePlayer();
     }
 }
