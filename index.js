@@ -16,6 +16,7 @@ let currentPlayer = "X";
 let running = false;
 
 initializeGame();
+statusText.textContent = `X's turn`;
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
@@ -55,7 +56,7 @@ function checkWinner(){
         if(cellA == "" || cellB == "" || cellC == "" ){
             continue
         }
-        if(cellA == cellB && cellB == cellC){
+        if(cellA == cellB && cellB == cellC && cellA != ""){
             roundWon = true;
             break;
         }
@@ -65,7 +66,7 @@ function checkWinner(){
         statusText.textContent = `${currentPlayer} wins!`
         running = false;
     }
-    else if (options.includes("")){
+    else if (!options.includes("")){
         statusText.textContent = `Draw!`
         running = false;
     }
