@@ -1,9 +1,9 @@
-body {
+body id=page1{
     margin: 0;
     background-color: #FFFFFF;
     text-align: center;
 }
-.title {
+.title href=index.html{
     color: #FF0000;
      background-color: #EEEEEE;
 
