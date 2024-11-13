@@ -21,7 +21,7 @@ statusText.textContent = `X's turn`;
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
     restartButton.addEventListener("click", restartGame);
-    statusText.textContent = `$(currentPlayer)'s turn`;
+    statusText.textContent = `${currentPlayer}'s turn`;
     let options = ["", "", "", "", "", "", "", "", ""];
     running = true;
     let currentPlayer = "X";
@@ -97,7 +97,6 @@ function restartGame(){
 
     let options = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "X";
-    let running = false;
     
     initializeGame();
     statusText.textContent = `X's turn`;
