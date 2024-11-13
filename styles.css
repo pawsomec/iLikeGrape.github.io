@@ -2,4 +2,11 @@
     width: 75px;
     height: 75px;
     border: 2px solid;
+
+}
+#cellContainer{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 225px
+    margin: auto;
 }
