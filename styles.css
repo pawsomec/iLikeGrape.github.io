@@ -1,8 +1,11 @@
 body {
     margin: 0;
-    background-color: pink;
+    background-color: #FFFFFF;
     text-align: center;
 }
 .title {
-    color: #FF00EE
+    color: #FF0000
 }
+h3{
+    color: #0000FF
+{
