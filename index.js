@@ -58,10 +58,12 @@ function checkWinner(){
         const cellB = options[condition[1]];
         const cellC = options[condition[2]];
         if(cellA == "" || cellB == "" || cellC == "" ){
-            console.log("allBlank");
+            console.log("BlankSquareDetected");
             continue
         }
-        if(cellA == cellB && cellB == cellC && cellA != ""){
+        if(cellA == cellB && cellB == cellC ){
+            console.log("allEqual")
+            if(cellA == "X" || cellA == "O")
             roundWon = true;
             console.log("roundWonSet2True");
             break;
