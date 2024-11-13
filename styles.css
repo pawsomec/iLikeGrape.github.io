@@ -1,5 +1,8 @@
 body {
     margin: 0;
-    background-color: aliceblue;
+    background-color: pink;
     text-align: center;
+}
+.title {
+    color: #FF00EE
 }
