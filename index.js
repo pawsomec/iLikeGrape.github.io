@@ -75,12 +75,12 @@ function checkWinner(){
 
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`
-        running = false;
+        running = true;
         console.log("win");
     }
     else if (!options.includes("")){
         statusText.textContent = `Draw!`
-        running = false;
+        running = true;
         console.log("tie");
     }
     else{
