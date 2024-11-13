@@ -35,14 +35,14 @@ function cellClicked(){
     }
 
     updateCell(this, cellIndex)
-    console.log("cell updated");
+    console.log("cellUpdateRequested");
     checkWinner();
 
 }
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
-    console.log(`cell update ${options[index]}`);
+    console.log(`cell updated ${options[index]}`);
 
 }
 function changePlayer(){
