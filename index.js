@@ -24,6 +24,8 @@ function initializeGame(){
     statusText.textContent = `$(currentPlayer)'s turn`;
     let options = ["", "", "", "", "", "", "", "", ""];
     running = true;
+    let currentPlayer = "X";
+
 }
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
@@ -32,7 +34,8 @@ function cellClicked(){
         return;
     }
 
-    updateCell(this, cellIndex);
+    updateCell(this, cellIndex)
+    console.log("cell updated");
     checkWinner();
 
 }
