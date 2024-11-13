@@ -30,7 +30,7 @@ function cellClicked(){
     if(options[cellIndex] != "" || !running){
         return
     }
-    changePlayer();
+
     updateCell(this, cellIndex);
     checkWinner();
 }
@@ -42,7 +42,7 @@ function updateCell(cell, index){
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`;
-    console.log("changedPlayer")
+    console.log("changedPlayer");
 
 }
 function checkWinner(){
