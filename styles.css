@@ -3,6 +3,11 @@ body id=page1{
     background-color: #FFFFFF;
     text-align: center;
 }
+body id=page2{
+    margin:0;
+    background-color:#000000;
+    text-align: center;
+}
 .title href=index.html{
     color: #FF0000;
      background-color: #EEEEEE;
