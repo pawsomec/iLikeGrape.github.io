@@ -90,5 +90,6 @@ function restartGame(){
     cells.forEach(cell => cell.textContent = "");
     running = true;
     initializeGame()
+    console.log(`${options}`)
 
 };
