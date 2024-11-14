@@ -24,7 +24,7 @@ function initializeGame(){
     running = true;
 } 
 function cellClicked(cellIndex){
-    const cellIndex = this.querySelector("cellIndex");
+    const cellIndex = this.querySelector("#cellIndex");
 
     if(options[cellIndex] != "" || !running){
         return
