@@ -14,13 +14,13 @@ const winConditions = [
 let options = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let running = false;
-
+console.log("initializeGame")
 initializeGame();
 
 function initializeGame(){
     running = true;
-    cells.forEach(cell => cell.addEventListener("click", cellClicked));
-    restartButton.addEventListener("click", restartGame);
+    cells.forEach(cell => cell.addEventListener("click",cellClicked()));
+    restartButton.addEventListener("click",restartGame());
     currentPlayer = "X";
     statusText.textContent = `${currentPlayer}'s turn`;
 }
