@@ -33,9 +33,9 @@ function cellClicked(){
     checkWinner();
 }
 function updateCell(cell, index){
+    changePlayer();
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
-    changePlayer();
 }
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
