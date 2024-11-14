@@ -29,7 +29,7 @@ function cellClicked(){
     if(options[cellIndex] != "" || !running){
         return;
     }
-
+    changePlayer();
     updateCell(this, cellIndex);
     checkWinner();
 }
@@ -67,7 +67,6 @@ function checkWinner(){
         running = false;
     }
     else{
-        changePlayer();
     }
 }
 function restartGame(){
