@@ -18,7 +18,9 @@ console.log("initializeGame")
 initializeGame();
 
 function initializeGame(){
+    console.log("initializeGame")
     cells.forEach(cell => cell.addEventListener("click",cellClicked));
+    console.log("initializeGame")
     restartButton.addEventListener("click",restartGame);
     currentPlayer = "X";
     running = true;
