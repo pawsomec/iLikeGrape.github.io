@@ -18,13 +18,11 @@ let running = false;
 initializeGame();
 
 function initializeGame(){
-    cells.forEach(cell => cell.addEventListener("click", cellClicked));
-    cells.forEach(cell => cell.addEventListener("tap", cellClicked));
-    restartButton.addEventListener("click", restartGame);
-    restartButton.addEventListener("tap", restartGame);
-    currentPlayer = "X"
-    statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
+    cells.forEach(cell => cell.addEventListener("click", cellClicked));
+    restartButton.addEventListener("click", restartGame);
+    currentPlayer = "X";
+    statusText.textContent = `${currentPlayer}'s turn`;
 }
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
@@ -88,7 +86,7 @@ function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
     statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = "X");
+    cells.forEach(cell => cell.textContent = "");
     cells.forEach(console.log(`${cell.textContent}`));
     console.log(`${options}`)
     
