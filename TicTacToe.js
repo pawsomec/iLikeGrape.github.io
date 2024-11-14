@@ -19,7 +19,9 @@ initializeGame();
 
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked));
+    cells.forEach(cell => cell.addEventListener("tap", cellClicked));
     restartButton.addEventListener("click", restartGame);
+    restartButton.addEventListener("tap", restartGame);
     currentPlayer = "X"
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
