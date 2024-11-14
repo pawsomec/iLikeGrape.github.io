@@ -29,6 +29,7 @@ function cellClicked(){
     if(options[cellIndex] != "" || !running){
         return;
     }
+    changePlayer();
     updateCell(this, cellIndex);
     checkWinner();
 }
