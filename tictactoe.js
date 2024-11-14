@@ -22,7 +22,6 @@ function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click",cellClicked()));
     restartButton.addEventListener("click",restartGame());
     currentPlayer = "X";
-    statusText.textContent = `${currentPlayer}'s turn`;
 }
 function cellClicked(){
     const cellIndex = this.getAttribute("cellIndex");
