@@ -31,12 +31,12 @@ function cellClicked(){
     }
 
     updateCell(this, cellIndex);
-    changePlayer();
     checkWinner();
 }
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    changePlayer();
 }
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
