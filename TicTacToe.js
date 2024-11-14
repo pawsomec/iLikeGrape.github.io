@@ -88,7 +88,7 @@ function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
     statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = "");
+    cells.forEach(cell => cell.textContent = "X");
     cells.forEach(console.log(`${cell.textContent}`));
     console.log(`${options}`)
     
