@@ -22,3 +22,9 @@
 body{
     background-color: pink;
 }
+#statusText{
+    color: black
+}
+#restartButton{
+    color: gray
+}
