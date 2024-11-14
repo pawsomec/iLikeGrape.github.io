@@ -18,13 +18,13 @@ console.log("initializeGame")
 initializeGame();
 
 function initializeGame(){
-    running = true;
     cells.forEach(cell => cell.addEventListener("click",cellClicked));
     restartButton.addEventListener("click",restartGame);
     currentPlayer = "X";
+    running = true;
 } 
 function cellClicked(cellIndex){
-    const cellIndex = cell.getAttribute("cellIndex");
+    const cellIndex = this.querySelector("cellIndex");
 
     if(options[cellIndex] != "" || !running){
         return
