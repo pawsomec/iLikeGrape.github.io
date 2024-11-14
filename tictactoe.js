@@ -19,12 +19,11 @@ initializeGame();
 
 function initializeGame(){
     running = true;
-    cells.forEach(cell => cell.addEventListener("click",cellClicked()));
-    restartButton.addEventListener("click",restartGame());
+    cells.forEach(cell => cell.addEventListener("click",cellClicked(this.getAttribute("cellIndex"))));
+    restartButton.addEventListener("click",restartGame);
     currentPlayer = "X";
 }
-function cellClicked(){
-    const cellIndex = this.getAttribute("cellIndex");
+function cellClicked(cellIndex){
 
     if(options[cellIndex] != "" || !running){
         return
