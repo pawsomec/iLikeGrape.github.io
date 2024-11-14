@@ -29,12 +29,11 @@ function cellClicked(){
     if(options[cellIndex] != "" || !running){
         return;
     }
-    changePlayer();
+
     updateCell(this, cellIndex);
     checkWinner();
 }
 function updateCell(cell, index){
-    changePlayer();
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
@@ -60,7 +59,6 @@ function checkWinner(){
         }
     }
     if(roundWon){
-        changePlayer();
         statusText.textContent = `${currentPlayer} wins!`;
         running = false;
     }
@@ -69,6 +67,7 @@ function checkWinner(){
         running = false;
     }
     else{
+        changePlayer();
     }
 }
 function restartGame(){
