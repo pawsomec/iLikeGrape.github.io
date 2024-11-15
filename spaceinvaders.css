@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+}
+#title{
+    color: aqua;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 45px;
+    margin: auto;
+}
