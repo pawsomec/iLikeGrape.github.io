@@ -11,13 +11,16 @@
 #gameContainer{
     font-family: "Permanent Marker";
     text-align: center;
+    float: right;
 }
 #cellContainer{
     display: grid;
     grid-template-columns: repeat(3, auto);
     width: 225px;
 }
-.container{
+#container{
     display:flex;
-    background-color: red;
+}
+#list{
+    float: left;
 }
