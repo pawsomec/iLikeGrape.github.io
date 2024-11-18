@@ -5,11 +5,11 @@ let boardHeight = 600;
 let context;
 
 //ship
-let shipWidth = 88;
-let shipHeight = 94;
-let shipX = 50;
-let shipY = 50;
-let shipImg;
+let shipWidth = 64;
+let shipHeight = 64;
+let shipX = 218;
+let shipY = 504;
+let shipImg; 
 
 //ship varuble
 let ship = {
@@ -34,4 +34,34 @@ window.onload = function() { //when game starts
     shipImg.onload = function() {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
+
+    requestAnimationFrame(update);
 }
+function update(){
+    //preping for next frame
+    requestAnimationFrame(update);
+    if (gameOver) {
+        return;
+    }
+    context.clearRect(0, 0, board.width, board.height);
+
+    if (e.code == "ArrowLeft") { // checks to see if it should move left
+        if (e.code == "ArrowRight"){
+            
+        }
+        else{
+            ship.y = Math.min(ship.y - 0.5, 0)
+        }
+    }
+
+    if (e.code == "ArrowRight") { //checks to see if it should move right
+        if (e.code == "ArrowLeft"){
+        }
+        else{
+            ship.y = Math.max(ship.y + 0.5, 436)   
+        }
+    }
+    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);     
+}
+
+
