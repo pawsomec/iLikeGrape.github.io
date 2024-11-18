@@ -4,6 +4,8 @@ let boardWidth = 500;
 let boardHeight = 600;
 let context;
 
+let gameOver;
+
 //ship
 let shipWidth = 64;
 let shipHeight = 64;
