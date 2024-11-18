@@ -38,6 +38,7 @@ window.onload = function() { //when game starts
     }
 
     requestAnimationFrame(update);
+    document.addEventListener("Keydown", moveShip())
 }
 function update(){
     //preping for next frame
@@ -47,6 +48,10 @@ function update(){
     }
     context.clearRect(0, 0, board.width, board.height);
 
+       
+}
+
+function moveShip() {
     if (e.code == "ArrowLeft") { // checks to see if it should move left
         if (e.code == "ArrowRight"){
             
@@ -63,7 +68,5 @@ function update(){
             ship.y = Math.max(ship.y + 0.5, 436)   
         }
     }
-    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);     
+    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);  
 }
-
-
