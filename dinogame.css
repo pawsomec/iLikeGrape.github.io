@@ -1,13 +1,10 @@
 
-#title{
-    color: aqua;
+body {
+    font-family:'Courier New', Courier, monospace;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 45px;
-    margin: auto;
 }
-#board{
-    border: 1px solid black;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.150);
+
+#board {
+    background-color: lightgray;
+    border-bottom: 1px solid black;
 }
