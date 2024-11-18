@@ -4,7 +4,7 @@ let boardWidth = 500;
 let boardHeight = 600;
 let context;
 
-let gameOver;
+let gameOver = false
 
 //ship
 let shipWidth = 64;
