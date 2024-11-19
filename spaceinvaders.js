@@ -47,6 +47,7 @@ function update(){
         return;
     }
     context.clearRect(0, 0, board.width, board.height);
+    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 
        
 }
@@ -67,6 +68,5 @@ function moveShip(e) {
         else{
             ship.y = Math.max(ship.y + 0.5, 436)   
         }
-    }
-    context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);  
+    }  
 }
