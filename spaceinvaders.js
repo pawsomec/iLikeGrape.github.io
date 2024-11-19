@@ -34,30 +34,35 @@ window.onload = function() { //when game starts
     shipImg = new Image();
     shipImg.src = "./spaceinvadersImgs/ship.png";
     shipImg.onload = function() {
+        console.log("imgLoaded")
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
 
 
-    requestAnimationFrame(update);
     document.addEventListener("Keydown", moveShip(e));
+    update()
+
 }
 function update(){
+    console.log("update")
     //preping for next frame
-    requestAnimationFrame(update);
     if (gameOver) {
         return;
     }
     context.clearRect(0, 0, board.width, board.height);
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
+    requestAnimationFrame(update);
 
        
 }
 
 function moveShip(e) {
+    console.log("Move ship function called");
     if (gameOver) {
         return;
     };
     if (e.key == "ArrowLeft") { // checks to see if it should move left
+        console.log("Moving ship left");
         ship.x -= 5;
     };
 }
