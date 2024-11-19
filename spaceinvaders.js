@@ -38,7 +38,7 @@ window.onload = function() { //when game starts
     }
 
     requestAnimationFrame(update);
-    document.addEventListener("Keydown", moveShip())
+    document.addEventListener("Keydown", moveShip);
 }
 function update(){
     //preping for next frame
@@ -51,7 +51,7 @@ function update(){
        
 }
 
-function moveShip() {
+function moveShip(e) {
     if (e.code == "ArrowLeft") { // checks to see if it should move left
         if (e.code == "ArrowRight"){
             
