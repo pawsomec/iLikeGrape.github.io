@@ -20,6 +20,13 @@ let ship = {
     width : shipWidth,
     height : shipHeight
 }
+
+//physics for ship
+
+let Xspeed = 0;
+let moveLeft = false;
+let moveRight = false;
+
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -39,30 +46,53 @@ window.onload = function() { //when game starts
     }
 
 
-    document.addEventListener("Keydown", moveShip(e));
+    window .addEventListener("keydown", function(e){
+        switch(e.key){
+            case "ArrowLeft":
+                moveLeft = true
+                break;
+            case "ArrowRight":
+                moveRight = true
+                break;
+        }
+    }, false);
+    window.addEventListener("keyup", function(e){
+        switch(e.key){
+            case "ArrowLeft":
+                moveLeft = false
+                break;
+            case "ArrowRight":
+                moveRight = false
+                break;
+        }
+    }, false);
     update()
 
 }
 function update(){
+    requestAnimationFrame(update);
     console.log("update")
     //preping for next frame
     if (gameOver) {
         return;
     }
+
+    ship.x += Xspeed;   
+
+    if(moveLeft && !moveRight){
+        Xspeed = -5
+    }
+    if(moveRight && !moveLeft){
+        Xspeed = 5
+    }
+    if(!moveLeft && !moveRight){
+        Xspeed = 0
+    }
     context.clearRect(0, 0, board.width, board.height);
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-    requestAnimationFrame(update);
+   
 
        
 }
 
-function moveShip(e) {
-    console.log("Move ship function called");
-    if (gameOver) {
-        return;
-    };
-    if (e.key == "ArrowLeft") { // checks to see if it should move left
-        console.log("Moving ship left");
-        ship.x -= 5;
-    };
-}
+
