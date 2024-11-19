@@ -36,10 +36,11 @@ window.onload = function() { //when game starts
     shipImg.onload = function() {
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
-}
+
 
     requestAnimationFrame(update);
     document.addEventListener("Keydown", moveShip(e));
+}
 function update(){
     //preping for next frame
     requestAnimationFrame(update);
