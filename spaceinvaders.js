@@ -34,8 +34,7 @@ let moveLeft = false;
 let moveRight = false;
 
 //physics for bullet
-let bulletSpeed = 5
-
+let bulletSpeed = 1
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
     board.height = boardHeight;
@@ -55,6 +54,9 @@ window.onload = function() { //when game starts
     }
     bulletImg = new Image();
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
+    bulletImg.onload = function() {
+        console.log("bullet loaded")
+    }
 
 
     window .addEventListener("keydown", function(e){
@@ -66,7 +68,28 @@ window.onload = function() { //when game starts
                 moveRight = true
                 break;
             case "Space":
-                shootLazer()
+                function shootLazer() {
+                    console.log("shoot lazer")
+                    if (gameOver) {
+                        return;
+                    }
+            
+                    //place cactus
+                    let bullet = {
+                        img : null,
+                        x : bulletX,
+                        y : bulletY,
+                        width : null,
+                        height: bulletHeight
+                    }
+                        bullet.img = bulletImg;
+                        bullet.width = bulletWidth;
+                        bulletArray.push(bullet);
+                    }
+            
+                    if (bulletArray.length > 5) {
+                        bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+                    }
                 break;
         }
     }, false);
@@ -78,6 +101,7 @@ window.onload = function() { //when game starts
             case "ArrowRight":
                 moveRight = false
                 break;
+            
         }
     }, false);
     update()
@@ -107,27 +131,15 @@ function update(){
     context.clearRect(0, 0, board.width, board.height);
 
     for (let i = 0; i < bulletArray.length; i++) {
-        let bullet = bulletArrayArray[i];
+        console.log('${i} bullet loading')
+        let bullet = bulletArray[i];
         bullet.y += bulletSpeed;
         context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
+        console.log("bullet drawn")
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
    
 
        
 }
-function shootLazer(){
-    let bullet = {
-        img : null,
-        x : shipX,
-        y : shipY,
-        width : null,
-        height: bulletHeight
-    };
-    bulletArray.push(bullet);
-    if (bulletArray.length > 5) {
-        bulletArrayArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
-    }
-};
-
 
