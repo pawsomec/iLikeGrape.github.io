@@ -67,30 +67,6 @@ window.onload = function() { //when game starts
             case "ArrowRight":
                 moveRight = true
                 break;
-            case "Space":
-                function shootLazer() {
-                    console.log("shoot lazer")
-                    if (gameOver) {
-                        return;
-                    }
-            
-                    //place cactus
-                    let bullet = {
-                        img : null,
-                        x : bulletX,
-                        y : bulletY,
-                        width : null,
-                        height: bulletHeight
-                    }
-                        bullet.img = bulletImg;
-                        bullet.width = bulletWidth;
-                        bulletArray.push(bullet);
-                    }
-            
-                    if (bulletArray.length > 5) {
-                        bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
-                    }
-                break;
         }
     }, false);
     window.addEventListener("keyup", function(e){
@@ -105,6 +81,7 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
+    document.addEventListener("keydown", shootLazer)
 
 
 }
@@ -138,8 +115,27 @@ function update(){
         console.log("bullet drawn")
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-   
-
-       
 }
 
+function shootLazer() {
+    console.log("shoot lazer")
+    if (gameOver && !e.code == "space") {
+        return;
+    }
+
+        //place cactus
+    let bullet = {
+        img : null,
+        x : bulletX,
+        y : bulletY,
+        width : null,
+        height: bulletHeight
+    }
+        bullet.img = bulletImg;
+        bullet.width = bulletWidth;
+        bulletArray.push(bullet);
+
+    if (bulletArray.length > 5) {
+        bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+    }
+};
