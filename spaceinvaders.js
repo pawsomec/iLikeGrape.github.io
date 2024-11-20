@@ -17,7 +17,7 @@ let shipImg;
 let bulletArray = [];
 let bulletWidth = 5;
 let bulletHeight = 12;
-let bulletX = ship.x
+let bulletX = 218
 
 //ship varuble
 let ship = {
