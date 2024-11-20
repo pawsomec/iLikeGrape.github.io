@@ -56,9 +56,8 @@ window.onload = function() { //when game starts
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
    
 
-    window.
+    
     window.addEventListener("keydown", function(e){
-        shootBullet()
         switch(e.key){
             case "ArrowLeft":
                 moveLeft = true
@@ -66,6 +65,25 @@ window.onload = function() { //when game starts
             case "ArrowRight":
                 moveRight = true
                 break;
+            case "Space":
+                console.log("shoot bullet")
+                if (e.key == "Space"){
+            
+                    //place bullet
+                    let bullet = {
+                        img : bulletImg,
+                        x : shipX,
+                        y : 600,
+                        width : bulletWidth,
+                        height: bulletHeight
+                    }
+                        bulletArray.push(bullet); //add bullet at this moment to the array
+            
+                    if (bulletArray.length > 5) {
+                        bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+                    }
+                }
+
         }
     }, false);
     window.addEventListener("keyup", function(e){
@@ -80,8 +98,6 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
-
-
 }
 function update(){
     requestAnimationFrame(update);
@@ -106,38 +122,11 @@ function update(){
     context.clearRect(0, 0, board.width, board.height);
 
     for (let i = 0; i < bulletArray.length; i++) {
-        console.log('${i} bullet loading')
+        console.log('${i} bullet moving')
         let bullet = bulletArray[i];
         bullet.y -= bulletSpeed;
         context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
-        console.log("bullet drawn")
+        console.log("bullet drawn") 
     }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
-}
-
-function shootBullet() {
-    shipX = 0
-    console.log("shoot bullet")
-    if (gameOver || !e.code == "space") {
-        return;
-    }
-    if (e.code == "space"){
-
-        //place cactus
-        let bullet = {
-            img : bulletImg,
-            x : shipX,
-            y : 600,
-            width : bulletWidth,
-            height: bulletHeight
-        }
-            bulletArray.push(bullet);
-
-        if (bulletArray.length > 5) {
-            bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
-        }
-    }
-    else {
-        return;
-    }
 };
