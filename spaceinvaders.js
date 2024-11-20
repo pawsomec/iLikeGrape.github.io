@@ -80,6 +80,7 @@ window.onload = function() { //when game starts
     }, false);
     update()
     window.addEventListener("keydown", shootLazer, false)
+    shootLazer()
 
 
 }
@@ -116,6 +117,7 @@ function update(){
 }
 
 function shootLazer() {
+    shipX = 0
     console.log("shoot lazer")
     if (gameOver || !e.code == "space") {
         return;
