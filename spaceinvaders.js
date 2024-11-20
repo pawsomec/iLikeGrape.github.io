@@ -13,6 +13,12 @@ let shipX = 218;
 let shipY = 504;
 let shipImg; 
 
+//bullet
+let bulletArray = [];
+let bulletWidth = 5;
+let bulletHeight = 12;
+let bulletX = ship.x
+
 //ship varuble
 let ship = {
     x : shipX,
@@ -26,6 +32,9 @@ let ship = {
 let Xspeed = 0;
 let moveLeft = false;
 let moveRight = false;
+
+//physics for bullet
+let bulletSpeed = 5
 
 window.onload = function() { //when game starts 
     board = document.getElementById("board");
@@ -44,6 +53,8 @@ window.onload = function() { //when game starts
         console.log("imgLoaded")
         context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
     }
+    bulletImg = new Image();
+    bulletImg.src = "./spaceinvadersImgs/bullet.png";
 
 
     window .addEventListener("keydown", function(e){
@@ -53,6 +64,9 @@ window.onload = function() { //when game starts
                 break;
             case "ArrowRight":
                 moveRight = true
+                break;
+            case "Space":
+                shootLazer()
                 break;
         }
     }, false);
@@ -67,6 +81,7 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
+
 
 }
 function update(){
@@ -88,11 +103,31 @@ function update(){
     if(!moveLeft && !moveRight){
         Xspeed = 0
     }
+
     context.clearRect(0, 0, board.width, board.height);
+
+    for (let i = 0; i < bulletArray.length; i++) {
+        let bullet = bulletArrayArray[i];
+        bullet.y += bulletSpeed;
+        context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
+    }
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
    
 
        
 }
+function shootLazer(){
+    let bullet = {
+        img : null,
+        x : shipX,
+        y : shipY,
+        width : null,
+        height: bulletHeight
+    };
+    bulletArray.push(bullet);
+    if (bulletArray.length > 5) {
+        bulletArrayArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+    }
+};
 
 
