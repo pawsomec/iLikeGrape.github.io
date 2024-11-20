@@ -54,9 +54,7 @@ window.onload = function() { //when game starts
     }
     bulletImg = new Image();
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
-    bulletImg.onload = function() {
-        console.log("bullet loaded")
-    }
+   
 
 
     window .addEventListener("keydown", function(e){
@@ -81,7 +79,7 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
-    window.addEventListener("keydown", shootLazer)
+    window.addEventListener("keydown", shootLazer, false)
 
 
 }
@@ -119,23 +117,26 @@ function update(){
 
 function shootLazer() {
     console.log("shoot lazer")
-    if (gameOver && !e.code == "space") {
+    if (gameOver || !e.code == "space") {
         return;
     }
+    if (e.code == "space"){
 
         //place cactus
-    let bullet = {
-        img : null,
-        x : bulletX,
-        y : 600,
-        width : bulletWidth,
-        height: bulletHeight
-    }
-        bullet.img = bulletImg;
-        bullet.width = bulletWidth;
-        bulletArray.push(bullet);
+        let bullet = {
+            img : bulletImg,
+            x : shipX,
+            y : 600,
+            width : bulletWidth,
+            height: bulletHeight
+        }
+            bulletArray.push(bullet);
 
-    if (bulletArray.length > 5) {
-        bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+        if (bulletArray.length > 5) {
+            bulletArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
+        }
+    }
+    else {
+        return;
     }
 };
