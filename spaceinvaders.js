@@ -56,21 +56,15 @@ window.onload = function() { //when game starts
     bulletImg.src = "./spaceinvadersImgs/bullet.png";
    
 
-
-    window .addEventListener("keydown", function(e){
-        shootLazer()
+    window.
+    window.addEventListener("keydown", function(e){
+        shootBullet()
         switch(e.key){
             case "ArrowLeft":
                 moveLeft = true
                 break;
             case "ArrowRight":
                 moveRight = true
-                break;
-            case "Space":
-                shootLazer()
-                break;
-            case "space":
-                shootLazer()
                 break;
         }
     }, false);
@@ -121,9 +115,9 @@ function update(){
     context.drawImage(shipImg, ship.x, ship.y, ship.width, ship.height);
 }
 
-function shootLazer() {
+function shootBullet() {
     shipX = 0
-    console.log("shoot lazer")
+    console.log("shoot bullet")
     if (gameOver || !e.code == "space") {
         return;
     }
