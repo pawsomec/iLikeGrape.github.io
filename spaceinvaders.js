@@ -81,7 +81,7 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
-    document.addEventListener("keydown", shootLazer)
+    window.addEventListener("keydown", shootLazer)
 
 
 }
@@ -110,7 +110,7 @@ function update(){
     for (let i = 0; i < bulletArray.length; i++) {
         console.log('${i} bullet loading')
         let bullet = bulletArray[i];
-        bullet.y += bulletSpeed;
+        bullet.y -= bulletSpeed;
         context.drawImage(bullet.img, bullet.x, bullet.y, bullet.width, bullet.height);
         console.log("bullet drawn")
     }
@@ -127,8 +127,8 @@ function shootLazer() {
     let bullet = {
         img : null,
         x : bulletX,
-        y : bulletY,
-        width : null,
+        y : 600,
+        width : bulletWidth,
         height: bulletHeight
     }
         bullet.img = bulletImg;
