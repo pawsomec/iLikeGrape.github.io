@@ -58,12 +58,19 @@ window.onload = function() { //when game starts
 
 
     window .addEventListener("keydown", function(e){
+        shootLazer()
         switch(e.key){
             case "ArrowLeft":
                 moveLeft = true
                 break;
             case "ArrowRight":
                 moveRight = true
+                break;
+            case "Space":
+                shootLazer()
+                break;
+            case "space":
+                shootLazer()
                 break;
         }
     }, false);
@@ -79,8 +86,6 @@ window.onload = function() { //when game starts
         }
     }, false);
     update()
-    window.addEventListener("keydown", shootLazer, false)
-    shootLazer()
 
 
 }
