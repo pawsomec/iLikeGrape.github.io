@@ -68,7 +68,7 @@ window.onload = function() { //when game starts
             case " ":
                 console.log("shoot bullet")
                 if (e.key === " "){
-            
+                    e.preventDefault()
                     //place bullet
                     let bullet = {
                         img : bulletImg,
